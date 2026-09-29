@@ -1,0 +1,4 @@
+tweet_id,author_id,inbound,created_at,text,response_tweet_id,in_response_to_tweet_id
+1,111,True,Wed Oct 11 06:00:00 +0000 2017,hello,2,
+2,O2,False,Wed Oct 11 07:00:00 +0000 2017,reply,,1
+3,222,True,Wed Oct 11 08:00:00 +0000 2017,other,,

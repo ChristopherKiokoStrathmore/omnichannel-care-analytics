@@ -1,0 +1,5 @@
+instruction,intent,category,tags,response
+check my data,check_usage,CONSUMPTION,BQ,Your usage is fine
+how much data please,check_usage,CONSUMPTION,BILQZ,Usage details
+I want to pay,pay,PAYMENT,BP,You can pay here
+pay now please,pay,PAYMENT,BCQZ,Payment steps

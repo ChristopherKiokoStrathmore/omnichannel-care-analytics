@@ -1,0 +1,24 @@
+{
+  "bitext_telco": {
+    "name": "Bitext Telco customer-support intents",
+    "page": "https://huggingface.co/datasets/bitext/Bitext-telco-llm-chatbot-training-dataset",
+    "url": "https://huggingface.co/datasets/bitext/Bitext-telco-llm-chatbot-training-dataset/resolve/main/bitext-telco-llm-chatbot-training-dataset.csv",
+    "sha256": "0905820a880783d1a00f92d4f519488479f9eefe770cbfb5737f9462135d6c12",
+    "bytes": 15125807,
+    "license": "CDLA-Sharing-1.0",
+    "local_path": "data/raw/bitext-telco-llm-chatbot-training-dataset.csv",
+    "committed": false,
+    "note": "Public file published by Bitext. Bitext describes it as a hybrid synthetic training set for intent detection. The raw CSV is downloaded by scripts/download_public_data.py and is not committed."
+  },
+  "twitter_preview": {
+    "name": "Customer Support on Twitter, publisher 100-line preview",
+    "upstream": "https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter",
+    "url": "https://berd-platform.de/records/4c9xb-k5q03/files/sample.csv__100lines.csv?download=1",
+    "sha256": "8167aa0372c1b7a3cdff2d0f2d2f7d8a605d0615d4887a54981bc82d8c30e0ac",
+    "md5": "5536c0e077d9e069c06d27a41cdd1ceb",
+    "bytes": 17263,
+    "local_path": "data/raw/twitter-customer-support-preview-100lines.csv",
+    "committed": false,
+    "note": "Small public preview hosted by the BERD platform (record 4c9xb-k5q03), whose published MD5 matches this file. The full Kaggle corpus was not downloaded: unauthenticated requests to the dataset page and the Kaggle download API returned HTTP 404, and no Kaggle credentials were used."
+  }
+}
