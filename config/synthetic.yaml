@@ -1,0 +1,141 @@
+# SYNTHETIC multichannel care log.
+# Every number below is an assumption you can edit. None of them was estimated
+# from Bitext, from the Twitter preview, or from any operator.
+# Bitext is balanced at 1,000 examples per intent, so it is not used as demand.
+
+seed: 20260929
+n_journeys: 4000
+start: "2024-06-03T06:00:00+00:00"
+horizon_days: 90
+max_contacts: 4
+
+# One journey per customer. A repeat contact is another contact in that same
+# journey after an unresolved contact, not a later journey from the same person.
+channels: [ussd, app, web, social, call]
+digital_channels: [ussd, app, web, social]
+assisted_channel: call
+
+# Relative demand. The generator normalises these. Key order does not matter;
+# draws use sorted intent names.
+intent_weights:
+  check_usage: 12
+  invoices: 8
+  dispute_invoice: 6
+  pay: 6
+  check_mobile_payments: 5
+  payment_methods: 3
+  schedule_payments: 3
+  check_excess_data_charges: 5
+  set_usage_limits: 3
+  report_problem: 7
+  report_poor_signal_coverage: 6
+  get_compensation: 3
+  customer_service: 4
+  human_agent: 3
+  activate_phone: 3
+  deactivate_phone: 2
+  activate_roaming: 3
+  check_signal_coverage: 4
+  activate_call_management_services: 2
+  deactivate_call_management_services: 1
+  install_internet: 2
+  change_plan: 4
+  cancel_plan: 3
+  check_cancellation_fee: 2
+  sign_up_for_plan: 2
+  change_provider: 1
+
+# Design rule for the simulator, not a Bitext column. Lookups are the
+# self-service shortlist because the public intent names are status checks.
+intent_groups:
+  self_service_candidate:
+    - check_usage
+    - check_excess_data_charges
+    - check_signal_coverage
+    - check_mobile_payments
+    - check_cancellation_fee
+    - invoices
+    - payment_methods
+  complaint:
+    - dispute_invoice
+    - get_compensation
+    - report_poor_signal_coverage
+    - report_problem
+    - human_agent
+  assisted:
+    - set_usage_limits
+    - customer_service
+    - pay
+    - schedule_payments
+    - activate_call_management_services
+    - activate_phone
+    - activate_roaming
+    - deactivate_call_management_services
+    - deactivate_phone
+    - install_internet
+    - cancel_plan
+    - change_plan
+    - change_provider
+    - sign_up_for_plan
+
+# Share of journeys whose first contact is on each channel.
+first_channel_weights:
+  ussd: 0.32
+  app: 0.22
+  web: 0.14
+  social: 0.08
+  call: 0.24
+
+# Base chance that THIS contact resolves the journey, before the adjustments
+# below. These are inputs. Realised rates in the outputs will differ.
+resolution_probability:
+  self_service_candidate:
+    ussd: 0.82
+    app: 0.86
+    web: 0.74
+    social: 0.30
+    call: 0.90
+  assisted:
+    ussd: 0.38
+    app: 0.52
+    web: 0.45
+    social: 0.20
+    call: 0.78
+  complaint:
+    ussd: 0.12
+    app: 0.22
+    web: 0.18
+    social: 0.15
+    call: 0.60
+
+# p = min(cap, base * attempt_decay^(contact_index-1) * slow_factor)
+# slow_factor applies only when that contact's time-to-first-response
+# is greater than slow_response_minutes.
+attempt_decay: 0.85
+slow_response_minutes: 30
+slow_response_factor: 0.75
+resolution_probability_cap: 0.98
+
+# If the contact does not resolve and the journey is under max_contacts,
+# the next step is drawn from this row. "abandon" ends the journey with no
+# further event. Each row sums to 1.
+next_channel_if_unresolved:
+  ussd:   {ussd: 0.20, app: 0.10, web: 0.05, social: 0.05, call: 0.45, abandon: 0.15}
+  app:    {ussd: 0.10, app: 0.15, web: 0.05, social: 0.10, call: 0.45, abandon: 0.15}
+  web:    {ussd: 0.10, app: 0.15, web: 0.10, social: 0.05, call: 0.40, abandon: 0.20}
+  social: {ussd: 0.05, app: 0.10, web: 0.05, social: 0.10, call: 0.50, abandon: 0.20}
+  call:   {ussd: 0.05, app: 0.05, web: 0.05, social: 0.05, call: 0.55, abandon: 0.25}
+
+# Lognormal parameters are the mean and sd of the underlying normal.
+# The unclipped median is exp(mu). Draws are then clipped.
+ttfr_lognormal_minutes:
+  ussd:   {mu: 0.00, sigma: 0.40}
+  app:    {mu: 0.69, sigma: 0.50}
+  web:    {mu: 1.61, sigma: 0.55}
+  social: {mu: 3.40, sigma: 0.65}
+  call:   {mu: 1.79, sigma: 0.50}
+ttfr_clip_minutes: [0.05, 1440]
+
+# Gap from this contact's response timestamp to the next inbound contact.
+retry_gap_lognormal_hours: {mu: 1.10, sigma: 0.70}
+retry_gap_clip_hours: [0.10, 168]

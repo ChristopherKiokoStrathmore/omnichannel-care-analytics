@@ -1,0 +1,60 @@
+seed: 7
+n_journeys: 40
+start: "2024-06-03T06:00:00+00:00"
+horizon_days: 10
+max_contacts: 3
+channels: [ussd, app, web, social, call]
+digital_channels: [ussd, app, web, social]
+assisted_channel: call
+intent_weights:
+  check_usage: 2
+  pay: 2
+  report_problem: 1
+intent_groups:
+  self_service_candidate: [check_usage]
+  complaint: [report_problem]
+  assisted: [pay]
+first_channel_weights:
+  ussd: 0.40
+  app: 0.20
+  web: 0.10
+  social: 0.10
+  call: 0.20
+resolution_probability:
+  self_service_candidate:
+    ussd: 0.82
+    app: 0.86
+    web: 0.74
+    social: 0.30
+    call: 0.90
+  assisted:
+    ussd: 0.38
+    app: 0.52
+    web: 0.45
+    social: 0.20
+    call: 0.78
+  complaint:
+    ussd: 0.12
+    app: 0.22
+    web: 0.18
+    social: 0.15
+    call: 0.60
+attempt_decay: 0.85
+slow_response_minutes: 30
+slow_response_factor: 0.75
+resolution_probability_cap: 0.98
+next_channel_if_unresolved:
+  ussd:   {ussd: 0.20, app: 0.10, web: 0.05, social: 0.05, call: 0.45, abandon: 0.15}
+  app:    {ussd: 0.10, app: 0.15, web: 0.05, social: 0.10, call: 0.45, abandon: 0.15}
+  web:    {ussd: 0.10, app: 0.15, web: 0.10, social: 0.05, call: 0.40, abandon: 0.20}
+  social: {ussd: 0.05, app: 0.10, web: 0.05, social: 0.10, call: 0.50, abandon: 0.20}
+  call:   {ussd: 0.05, app: 0.05, web: 0.05, social: 0.05, call: 0.55, abandon: 0.25}
+ttfr_lognormal_minutes:
+  ussd:   {mu: 0.00, sigma: 0.40}
+  app:    {mu: 0.69, sigma: 0.50}
+  web:    {mu: 1.61, sigma: 0.55}
+  social: {mu: 3.40, sigma: 0.65}
+  call:   {mu: 1.79, sigma: 0.50}
+ttfr_clip_minutes: [0.05, 1440]
+retry_gap_lognormal_hours: {mu: 1.10, sigma: 0.70}
+retry_gap_clip_hours: [0.10, 168]

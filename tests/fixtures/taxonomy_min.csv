@@ -1,0 +1,4 @@
+intent,category,n_examples
+check_usage,CONSUMPTION,2
+pay,PAYMENT,2
+report_problem,COMPLAINTS,1
