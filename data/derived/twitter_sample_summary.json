@@ -1,0 +1,97 @@
+{
+  "source": "BERD record 4c9xb-k5q03 sample.csv__100lines.csv",
+  "upstream": "Kaggle thoughtvector/customer-support-on-twitter",
+  "origin": "public_preview",
+  "full_corpus_downloaded": false,
+  "full_corpus_reason": "Unauthenticated requests to the Kaggle dataset page and the Kaggle download API returned HTTP 404. No Kaggle credentials were used. This file is the publisher preview only.",
+  "sha256": "8167aa0372c1b7a3cdff2d0f2d2f7d8a605d0615d4887a54981bc82d8c30e0ac",
+  "physical_newlines": 100,
+  "n_rows": 93,
+  "n_inbound": 49,
+  "n_outbound": 44,
+  "n_unparsed_inbound_flag": 0,
+  "n_company_accounts": 13,
+  "company_account_counts": [
+    {
+      "author_id": "AppleSupport",
+      "tweets": 13
+    },
+    {
+      "author_id": "SpotifyCares",
+      "tweets": 8
+    },
+    {
+      "author_id": "Tesco",
+      "tweets": 8
+    },
+    {
+      "author_id": "VirginTrains",
+      "tweets": 4
+    },
+    {
+      "author_id": "British_Airways",
+      "tweets": 3
+    },
+    {
+      "author_id": "ChaseSupport",
+      "tweets": 1
+    },
+    {
+      "author_id": "O2",
+      "tweets": 1
+    },
+    {
+      "author_id": "comcastcares",
+      "tweets": 1
+    },
+    {
+      "author_id": "sprintcare",
+      "tweets": 1
+    },
+    {
+      "author_id": "SouthwestAir",
+      "tweets": 1
+    },
+    {
+      "author_id": "Ask_Spectrum",
+      "tweets": 1
+    },
+    {
+      "author_id": "HPSupport",
+      "tweets": 1
+    },
+    {
+      "author_id": "UPSHelp",
+      "tweets": 1
+    }
+  ],
+  "telecom_or_cable_accounts": [
+    {
+      "author_id": "Ask_Spectrum",
+      "kind": "cable_isp",
+      "tweets": 1
+    },
+    {
+      "author_id": "O2",
+      "kind": "mobile",
+      "tweets": 1
+    },
+    {
+      "author_id": "comcastcares",
+      "kind": "cable_isp",
+      "tweets": 1
+    },
+    {
+      "author_id": "sprintcare",
+      "kind": "mobile",
+      "tweets": 1
+    }
+  ],
+  "telecom_or_cable_tweets": 4,
+  "in_sample_reply_links": 66,
+  "inbound_to_company_reply_pairs": 42,
+  "negative_reply_delays": 0,
+  "reply_delay_minutes_median": 50.849999999999994,
+  "reply_delay_minutes_p90": 385.73999999999995,
+  "reply_delay_definition": "For each outbound tweet in this preview whose in_response_to_tweet_id points at an inbound tweet that is also inside this same file, delay is the response created_at minus the parent created_at, in minutes. Pairs outside the preview are not counted. This is not a population time-to-first-response."
+}

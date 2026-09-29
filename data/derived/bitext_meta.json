@@ -1,0 +1,11 @@
+{
+  "source": "bitext/Bitext-telco-llm-chatbot-training-dataset",
+  "origin": "public",
+  "bitext_describes_dataset_as": "hybrid synthetic training set",
+  "n_examples": 26000,
+  "n_intents": 26,
+  "n_categories": 7,
+  "examples_per_intent_min": 1000,
+  "examples_per_intent_max": 1000,
+  "sha256": "0905820a880783d1a00f92d4f519488479f9eefe770cbfb5737f9462135d6c12"
+}

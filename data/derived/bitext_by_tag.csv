@@ -1,0 +1,13 @@
+tag,meaning,n_examples,share_of_examples
+B,basic syntactic structure,26000,1.0
+I,interrogative structure,18899,0.7268846153846154
+C,coordinated syntactic structure,20445,0.7863461538461538
+N,negation,0,0.0
+P,politeness,12310,0.4734615384615385
+Q,colloquial,12862,0.4946923076923077
+W,offensive language,9271,0.35657692307692307
+K,keyword mode,0,0.0
+E,abbreviations,1228,0.04723076923076923
+Z,errors and typos,12942,0.49776923076923074
+M,morphological variation,1352,0.052
+L,semantic variation,16402,0.6308461538461538
