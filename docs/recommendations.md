@@ -1,6 +1,6 @@
 # Design recommendations
 
-This note is a human-centred design hypothesis for a telco care journey. It is not a finding about any operator's customers. No synthetic rate in this repository is a real-world measurement. Each recommendation says whether it rests on the public Bitext training set or on the synthetic event log.
+This note is a human-centred design hypothesis for a telco care journey. No synthetic rate in this repository is a real-world measurement. Each recommendation says whether it rests on the public Bitext training set or on the SYNTHETIC event log.
 
 ## 1. Put lookup intents on a USSD menu and in the app
 

@@ -1,18 +1,25 @@
-# omnichannel-care-analytics
+# Omnichannel care analytics
 
-Public portfolio project by Chris Nguu. It measures care journeys from first contact to resolution across USSD, app, web, social, and the call channel.
+Customers bounce between USSD, app, web, social and the call centre before an issue is fixed. How fast is first response, how often do customers retry, and which intents resolve on which channel?
 
-Two public files are inputs: the Bitext telco intent training set, and a short publisher preview of Customer Support on Twitter. Every journey KPI comes from a seeded synthetic event log generated in this repository. The synthetic files, charts, and sentences are labelled SYNTHETIC. No synthetic rate in this repository is a real-world measurement. No employer or customer data is used.
+This repo builds a journey KPI pipeline (funnel, time to first response, resolution by channel and intent, directly-follows graph, Sankey and friction heatmap) and profiles the public Bitext telco intent taxonomy. Part of an independent portfolio series on telecom customer analytics, built alongside my MSc in Data Science. Structured using CRISP-DM.
 
-## Problem
+## Key results (capability and scope)
 
-Care teams want to know how long a first response takes, how often a customer has to try again, when a digital attempt ends in a call, and which intents actually get resolved on which channel. Public data does not contain that multichannel log. Bitext is a training set of intents. The Twitter corpus is a large tweet collection behind a Kaggle login, and the only file reached without credentials is a short preview. This repo therefore does three separate things, and keeps them separate:
+- Intent taxonomy: 26 intents in 7 categories, 26,000 Bitext examples profiled.
+- Journey KPIs: funnel, time to first response by channel, resolution by channel, intent and intent group, channel-transition graph, computed on a seeded SYNTHETIC event log of 4,000 journeys and 6,376 events.
+- Public Twitter customer-support preview (93 rows) described, not used as a telco sample.
+- All journey figures are labelled SYNTHETIC and are not real-world measurements.
+
+## Business Understanding
+
+Care teams want to know how long a first response takes, how often a customer has to try again, when a digital attempt ends in a call, and which intents get resolved on which channel. Public data does not contain that multichannel log. Bitext is a training set of intents. The Twitter corpus is a large tweet collection behind a Kaggle login, and the only file reached without credentials is a short preview. This repo therefore does three separate things, and keeps them separate:
 
 - Describe the public Bitext intent taxonomy and its language tags.
 - Describe the Twitter preview without treating it as a telco sample.
 - Simulate journeys under assumptions that are written down in `config/synthetic.yaml`, then compute the care KPIs on that simulation.
 
-## Data card
+## Data Understanding
 
 | Input | Status | What it is used for |
 | --- | --- | --- |
@@ -20,11 +27,17 @@ Care teams want to know how long a first response takes, how often a customer ha
 | Customer Support on Twitter | The full Kaggle dataset `thoughtvector/customer-support-on-twitter` was not downloaded. Unauthenticated requests did not return the file, and no Kaggle credentials were used. A publisher preview from BERD record `4c9xb-k5q03` was downloaded and hash-checked. The preview is not committed. | Row counts, reply links that stay inside the preview, and which company accounts appear. |
 | Multichannel event log | SYNTHETIC. Seeded generator in `care_analytics/synthetic.py`. Assumptions live in `config/synthetic.yaml`. | All journey KPIs, the Sankey, the friction heatmap, and the directly-follows table. |
 
-Bitext's equal example counts are how that training set was built. They are not demand. The Twitter preview is not a random sample of the multi-million-tweet corpus, and most of the company accounts in it are not telecom accounts.
+Bitext's equal example counts are how that training set was built. They are not demand. The Twitter preview is not a random sample of the multi-million-tweet corpus, and most of the company accounts in it are not telecom accounts. The profile of both public files is in the committed figures below.
 
-## Journey map
+## Data Preparation
 
-A synthetic journey is one customer, one intent, and one or more contacts. The generator draws the intent from the configured weights, using names and categories taken from the Bitext taxonomy table. It draws a first channel, a response delay, and whether that contact resolves. If it does not resolve, the next step is another channel or abandon. The journey stops when it resolves, when the customer abandons, or when it hits the contact cap in the config. There is one journey per customer.
+`scripts/download_public_data.py` fetches the two public files into `data/raw/` (gitignored) and checks the SHA-256 values in `data/checksums.json`. It then refreshes the small derived tables in `data/derived/`. The raw Bitext CSV and the Twitter preview are not committed.
+
+`scripts/run_analysis.py` does not download anything. It reads the committed Bitext taxonomy table and `config/synthetic.yaml`, regenerates the SYNTHETIC log, and rewrites the KPI file, the charts, `reports/headlines.md`, and `docs/recommendations.md`. The tests check that a fresh run matches the committed events and the committed prose. Commands are under Deployment.
+
+## Modeling
+
+A SYNTHETIC journey is one customer, one intent, and one or more contacts. The generator draws the intent from the configured weights, using names and categories taken from the Bitext taxonomy table. It draws a first channel, a response delay, and whether that contact resolves. If it does not resolve, the next step is another channel or abandon. The journey stops when it resolves, when the customer abandons, or when it hits the contact cap in the config. There is one journey per customer.
 
 ```mermaid
 flowchart LR
@@ -39,29 +52,52 @@ flowchart LR
 
 This is the generator, not a map of observed customers. Digital channels are USSD, app, web, and social. The assisted channel is call. A digital-to-call journey is one that starts on a digital channel and later has a call contact.
 
-## Channel-shift findings
+The analysis on that log is the funnel, time to first response by first channel, contact resolution by channel and by intent group, and the directly-follows graph. The process view is the directly-follows table [reports/charts/SYNTHETIC_directly_follows.csv](reports/charts/SYNTHETIC_directly_follows.csv), aggregated in DuckDB. pm4py is not used. Adding it would have pulled in a larger stack for a graph this table already states. Rate definitions are in the committed figures below. Every displayed rate is formatted from integer counts in `reports/kpis.json`.
 
-The numbers are in the synthetic block below, and they are synthetic. Complaint journeys move on to the call channel more often than lookup journeys. Assisted journeys sit between those two groups. Among steps that change channel, the largest flow is USSD followed by the call channel. A second contact on the same channel counts as a repeat contact and does not count as a channel switch. The Sankey chart is the same set of journeys split into resolved on the first contact, resolved after another contact, or abandoned. The heatmap is realised friction: one minus the contact resolution rate. Cells sit near the base probabilities in the config, moved by the attempt penalty and the slow-response penalty. That closeness is expected. It is not a second measurement of those probabilities.
+## Evaluation
+
+The numbers in the synthetic block below are labelled SYNTHETIC. Complaint journeys move on to the call channel more often than lookup journeys. Assisted journeys sit between those two groups. Among steps that change channel, the largest flow is USSD followed by the call channel. A second contact on the same channel counts as a repeat contact and does not count as a channel switch. The Sankey chart is the same set of journeys split into resolved on the first contact, resolved after another contact, or abandoned. The heatmap is realised friction: one minus the contact resolution rate. Cells sit near the base probabilities in the config, moved by the attempt penalty and the slow-response penalty. That closeness is expected. It is the generator doing what it was told, plus sampling and the two adjustments (later attempts, slow responses).
 
 Charts, both labelled SYNTHETIC:
 
 - [reports/charts/SYNTHETIC_sankey.html](reports/charts/SYNTHETIC_sankey.html)
 - [reports/charts/SYNTHETIC_friction_heatmap.html](reports/charts/SYNTHETIC_friction_heatmap.html)
 
-The process view is the directly-follows table [reports/charts/SYNTHETIC_directly_follows.csv](reports/charts/SYNTHETIC_directly_follows.csv), aggregated in DuckDB. pm4py is not used. Adding it would have pulled in a larger stack for a graph this table already states.
-
-## Recommendations
-
 The one-page note is [docs/recommendations.md](docs/recommendations.md). It is generated from `reports/kpis.json`. Each recommendation names its basis.
 
-- Lookup intents are the self-service shortlist because those public intent names are status checks, not because Bitext measured demand. The synthetic digital-to-call counts rank which of them to prototype first.
+- Lookup intents are the self-service shortlist because those public intent names are status checks, not because Bitext measured demand. The SYNTHETIC digital-to-call counts rank which of them to prototype first.
 - Complaint intents keep a route to a person. Under these assumptions, USSD is a way to capture the symptom, not the only path.
 - Social stays an acknowledgement channel under the clock configured for it.
 - The public training utterances are often colloquial and often contain the typo tag, and they are not keyword strings. A USSD path should be a menu. A chat path has to accept that wording. This statement is about the Bitext training set.
 
-Do not treat the note as a decision about a real operation until the weights, clocks, and base probabilities in `config/synthetic.yaml` are replaced with operator measurements.
+Treat the note as a decision about a real operation only after the weights, clocks, and base probabilities in `config/synthetic.yaml` are replaced with operator measurements.
 
-## Data card, definitions, and figures
+## Deployment
+
+Not in scope. This repo does not deploy a service. It ships a reproducible pipeline and the recommendations note.
+
+Python 3.12. From the repository root:
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/download_public_data.py
+python scripts/run_analysis.py
+python -m pytest -q
+```
+
+## Data and scope
+
+Built on public and synthetic data as an independent portfolio project.
+
+## Limitations
+
+- Bitext is a public training set. Bitext calls it hybrid synthetic. Counts are balanced across intents by construction, the language is English, and the file has no channel, no timestamp, and no customer. It cannot support a journey rate or a demand forecast.
+- The full Customer Support on Twitter dataset needs a Kaggle login. This repo does not use one. The preview is a few dozen rows, threads are cut off at the edge of the file, and the accounts are mostly outside telecom. The reply delay is only for pairs that both happen to sit inside the preview. It is not a time-to-first-response for Twitter support, and it is not a telco figure.
+- Synthetic resolution chances, channel mix, demand weights, and clocks are assumptions. Editing `config/synthetic.yaml` changes the KPIs. Where a realised rate is close to a base probability, that is the generator doing what it was told, plus sampling and the two adjustments (later attempts, slow responses).
+- The synthetic log has one journey per customer, and every contact receives a response. It cannot say anything about people who never get an answer, or about a second, unrelated issue from the same person.
+- Nothing here is Kenyan traffic, an operator extract, or a production customer-experience platform.
+
+## Committed figures and definitions
 
 This block is written by `care_analytics.report.render_headlines` from `reports/kpis.json`. The test suite checks that the README contains it unchanged.
 
@@ -173,26 +209,3 @@ Largest synthetic directly-follows flows:
 - app → resolved: 582
 - ussd → call: 385
 - call → call: 382
-
-## How to reproduce
-
-Python 3.12. From the repository root:
-
-```bash
-python -m pip install -r requirements.txt
-python scripts/download_public_data.py
-python scripts/run_analysis.py
-python -m pytest -q
-```
-
-`scripts/download_public_data.py` fetches the two public files into `data/raw/` (gitignored) and checks the SHA-256 values in `data/checksums.json`. It then refreshes the small derived tables in `data/derived/`. The raw Bitext CSV and the Twitter preview are not committed.
-
-`scripts/run_analysis.py` does not download anything. It reads the committed Bitext taxonomy table and `config/synthetic.yaml`, regenerates the synthetic log, and rewrites the KPI file, the charts, `reports/headlines.md`, and `docs/recommendations.md`. The tests check that a fresh run matches the committed events and the committed prose.
-
-## Limitations
-
-- Bitext is a public training set. Bitext calls it hybrid synthetic. Counts are balanced across intents by construction, the language is English, and the file has no channel, no timestamp, and no customer. It cannot support a journey rate or a demand forecast.
-- The full Customer Support on Twitter dataset needs a Kaggle login. This repo does not use one. The preview is a few dozen rows, threads are cut off at the edge of the file, and the accounts are mostly outside telecom. The reply delay is only for pairs that both happen to sit inside the preview. It is not a time-to-first-response for Twitter support, and it is not a telco figure.
-- Synthetic resolution chances, channel mix, demand weights, and clocks are assumptions. Editing `config/synthetic.yaml` changes the KPIs. Where a realised rate is close to a base probability, that is the generator doing what it was told, plus sampling and the two adjustments (later attempts, slow responses).
-- The synthetic log has one journey per customer, and every contact receives a response. It cannot say anything about people who never get an answer, or about a second, unrelated issue from the same person.
-- Nothing here is Kenyan traffic, an operator extract, or a production customer-experience platform.

@@ -81,7 +81,7 @@ def write_sankey(links: pd.DataFrame, path: Path) -> None:
     figure.update_layout(
         title={
             "text": (
-                "SYNTHETIC — first channel to journey outcome<br>"
+                "SYNTHETIC - first channel to journey outcome<br>"
                 f"<sup>{SYNTHETIC_NOTE} Counts are simulated journeys.</sup>"
             ),
             "x": 0.02,
@@ -144,7 +144,7 @@ def write_friction_heatmap(matrix: pd.DataFrame, path: Path) -> None:
     figure.update_layout(
         title={
             "text": (
-                "SYNTHETIC — friction heatmap (1 − contact resolution rate)<br>"
+                "SYNTHETIC - friction heatmap (1 − contact resolution rate)<br>"
                 f"<sup>{SYNTHETIC_NOTE} Empty cells have no simulated contacts.</sup>"
             ),
             "x": 0.02,
