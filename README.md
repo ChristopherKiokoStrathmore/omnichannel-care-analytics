@@ -1,5 +1,9 @@
 # Omnichannel care analytics
 
+![SYNTHETIC DATA - first channel to journey outcome and time to first response](assets/hero.png)
+
+SYNTHETIC data, seed 20260929. First-channel outcomes and time to first response from the journey pipeline.
+
 [![CI](https://github.com/ChristopherKiokoStrathmore/omnichannel-care-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/ChristopherKiokoStrathmore/omnichannel-care-analytics/actions/workflows/ci.yml)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -36,6 +40,10 @@ Care teams want to know how long a first response takes, how often a customer ha
 | Multichannel event log | SYNTHETIC. Seeded generator in `care_analytics/synthetic.py`. Assumptions live in `config/synthetic.yaml`. | All journey KPIs, the Sankey, the friction heatmap, and the directly-follows table. |
 
 Bitext's equal example counts are how that training set was built. They are not demand. The Twitter preview is not a random sample of the multi-million-tweet corpus, and most of the company accounts in it are not telecom accounts. The profile of both public files is in [reports/headlines.md](reports/headlines.md).
+
+![Bitext training set - examples by category](assets/bitext_categories.png)
+
+Bitext training set (public). Example counts by category. Equal counts are how the file was built. They are not demand.
 
 ## Data Preparation
 
@@ -75,6 +83,14 @@ The analysis on that log is the funnel, time to first response by first channel,
 ## Evaluation
 
 The numbers in [reports/headlines.md](reports/headlines.md) are labelled SYNTHETIC. Complaint journeys move on to the call channel more often than lookup journeys. Assisted journeys sit between those two groups. Among steps that change channel, the largest flow is USSD followed by the call channel. A second contact on the same channel counts as a repeat contact and does not count as a channel switch. The Sankey chart is the same set of journeys split into resolved on the first contact, resolved after another contact, or abandoned. The heatmap is realised friction: one minus the contact resolution rate. Cells sit near the base probabilities in the config, moved by the attempt penalty and the slow-response penalty. That closeness is expected. It is the generator doing what it was told, plus sampling and the two adjustments (later attempts, slow responses).
+
+![SYNTHETIC DATA - contact resolution by channel](assets/resolution_by_channel.png)
+
+SYNTHETIC data. Contact resolution rate by channel. A journey has at most one resolved contact.
+
+![SYNTHETIC DATA - outcomes by intent group](assets/intent_group_outcomes.png)
+
+SYNTHETIC data. Journey resolution, and digital-to-call among digital-first journeys, by intent group.
 
 Charts, both labelled SYNTHETIC. The PNG files are static copies of the same committed counts. The HTML files stay interactive.
 
