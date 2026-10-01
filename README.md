@@ -1,8 +1,8 @@
 # Omnichannel care analytics
 
-![SYNTHETIC DATA - first channel to journey outcome and time to first response](assets/hero.png)
+![Customers hop across care channels, the pipeline scores the path, and on synthetic data 32.0% of digital-first journeys later reach a call](assets/hero.png)
 
-SYNTHETIC data, seed 20260929. First-channel outcomes and time to first response from the journey pipeline.
+SYNTHETIC data, seed 20260929. The hop, the pipeline, and the outcome: 32.0% of digital-first journeys (971/3035) later reach a call.
 
 [![CI](https://github.com/ChristopherKiokoStrathmore/omnichannel-care-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/ChristopherKiokoStrathmore/omnichannel-care-analytics/actions/workflows/ci.yml)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
