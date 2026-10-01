@@ -7,7 +7,13 @@ from pathlib import Path
 
 import pandas as pd
 
-from care_analytics.charts import friction_matrix, write_friction_heatmap, write_sankey
+from care_analytics.charts import (
+    friction_matrix,
+    write_friction_heatmap,
+    write_friction_heatmap_png,
+    write_sankey,
+    write_sankey_png,
+)
 from care_analytics.journeys import build_journeys, directly_follows
 from care_analytics.kpis import compute_kpis
 from care_analytics.public_data import load_json
@@ -97,8 +103,11 @@ def write_outputs(root: Path, report: dict, events: pd.DataFrame, journeys: pd.D
     _write_frame(matrix, charts / "SYNTHETIC_friction_matrix.csv")
     flows = directly_follows(events)
     _write_frame(flows, charts / "SYNTHETIC_directly_follows.csv")
-    write_sankey(pd.DataFrame(report["synthetic"]["sankey"]), charts / "SYNTHETIC_sankey.html")
+    sankey = pd.DataFrame(report["synthetic"]["sankey"])
+    write_sankey(sankey, charts / "SYNTHETIC_sankey.html")
+    write_sankey_png(sankey, charts / "SYNTHETIC_sankey.png")
     write_friction_heatmap(matrix, charts / "SYNTHETIC_friction_heatmap.html")
+    write_friction_heatmap_png(matrix, charts / "SYNTHETIC_friction_heatmap.png")
     (root / "reports" / "kpis.json").write_text(
         json.dumps(report, indent=2) + "\n", encoding="utf-8"
     )

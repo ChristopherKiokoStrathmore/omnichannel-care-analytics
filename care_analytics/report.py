@@ -42,7 +42,12 @@ def render_headlines(report: dict) -> str:
     twitter = public["twitter_sample"]
     synthetic = report["synthetic"]
     funnel = synthetic["funnel"]
-    lines: list[str] = []
+    lines: list[str] = [
+        "# Committed figures and definitions",
+        "",
+        "This file is written by `care_analytics.report.render_headlines` from `reports/kpis.json`.",
+        "",
+    ]
 
     lines.append("### Public inputs")
     lines.append("")
@@ -223,6 +228,43 @@ def render_headlines(report: dict) -> str:
         lines.append(f"- {row['from_activity']} → {row['to_activity']}: {row['n']}")
     lines.append("")
     return "\n".join(lines).rstrip() + "\n"
+
+
+def render_readme_kpis(report: dict) -> str:
+    """Six headline lines for the README. Every figure is taken from the report."""
+
+    bitext = report["public"]["bitext"]
+    twitter = report["public"]["twitter_sample"]
+    synthetic = report["synthetic"]
+    funnel = synthetic["funnel"]
+    lines = [
+        (
+            f"- Bitext training examples: {bitext['n_examples']}. "
+            f"Intents: {bitext['n_intents']}. Categories: {bitext['n_categories']}."
+        ),
+        f"- Twitter preview data rows: {twitter['n_rows']}.",
+        (
+            f"- SYNTHETIC seed {synthetic['seed']}. "
+            f"Journeys: {funnel['journeys']}. Events: {funnel['events']}."
+        ),
+        (
+            "- SYNTHETIC journey resolution rate: "
+            f"{share(funnel['resolved'], funnel['journeys'])}. "
+            "Resolved on the first contact: "
+            f"{share(funnel['resolved_on_first_contact'], funnel['journeys'])}."
+        ),
+        (
+            "- SYNTHETIC repeat-contact rate: "
+            f"{share(funnel['repeat_contact'], funnel['journeys'])}. "
+            "Channel-switch rate: "
+            f"{share(funnel['channel_switch'], funnel['journeys'])}."
+        ),
+        (
+            "- SYNTHETIC digital-to-call rate among digital-first journeys: "
+            f"{share(funnel['digital_to_call'], funnel['digital_first'])}."
+        ),
+    ]
+    return "\n".join(lines) + "\n"
 
 
 def _lookup_spill(report: dict) -> list[dict]:

@@ -8,7 +8,7 @@ import pytest
 
 from care_analytics.journeys import build_journeys
 from care_analytics.kpis import compute_kpis
-from care_analytics.report import render_headlines, render_recommendations
+from care_analytics.report import render_headlines, render_readme_kpis, render_recommendations
 from care_analytics.synthetic import generate_events, load_config, load_taxonomy
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,10 +58,17 @@ def test_written_reports_match_the_renderer():
     )
 
 
-def test_readme_contains_the_generated_figures():
-    headlines = (ROOT / "reports" / "headlines.md").read_text(encoding="utf-8").strip("\n")
+def test_readme_kpis_match_committed_outputs():
+    report = _report()
+    headlines = (ROOT / "reports" / "headlines.md").read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert headlines in readme
+    assert headlines == render_headlines(report)
+    assert render_readme_kpis(report).strip("\n") in readme
+    assert "reports/headlines.md" in readme
+    assert headlines.strip("\n") not in readme
+    twitter_rows = report["public"]["twitter_sample"]["n_rows"]
+    assert f"{twitter_rows} rows" in readme
+    assert "a few dozen" not in readme.lower()
 
 
 def test_committed_charts_are_labelled_synthetic():
@@ -69,6 +76,10 @@ def test_committed_charts_are_labelled_synthetic():
         text = (ROOT / "reports" / "charts" / name).read_text(encoding="utf-8")
         assert "SYNTHETIC" in text
         assert "Not observed customer behaviour" in text
+    for name in ("SYNTHETIC_sankey.png", "SYNTHETIC_friction_heatmap.png"):
+        data = (ROOT / "reports" / "charts" / name).read_bytes()
+        assert data.startswith(b"\x89PNG\r\n\x1a\n")
+        assert b"SYNTHETIC DATA" in data
 
 
 def test_committed_outputs_do_not_contain_raw_utterances():

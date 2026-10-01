@@ -1,3 +1,7 @@
+# Committed figures and definitions
+
+This file is written by `care_analytics.report.render_headlines` from `reports/kpis.json`.
+
 ### Public inputs
 
 Bitext training examples: 26000. Intents: 26. Categories: 7. Examples per intent: minimum 1000, maximum 1000. The equal counts are how this training set was built. They are not customer demand.
