@@ -1,5 +1,7 @@
 # Omnichannel care analytics
 
+**[Live demo](https://omnichannel-care-analytics.vercel.app)**
+
 ![Customers hop across care channels, the pipeline scores the path, and on synthetic data 32.0% of digital-first journeys later reach a call](assets/hero.png)
 
 SYNTHETIC data, seed 20260929. The hop, the pipeline, and the outcome: 32.0% of digital-first journeys (971/3035) later reach a call.
@@ -10,7 +12,7 @@ SYNTHETIC data, seed 20260929. The hop, the pipeline, and the outcome: 32.0% of 
 
 ## Live demo
 
-Live demo: placeholder. Deploy the Next.js app in `web/` on Vercel with the project Root Directory set to `web`, then replace this line with the deployed URL.
+[https://omnichannel-care-analytics.vercel.app](https://omnichannel-care-analytics.vercel.app)
 
 Customers bounce between USSD, app, web, social and the call centre before an issue is fixed. How fast is first response, how often do customers retry, and which intents resolve on which channel?
 
