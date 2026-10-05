@@ -14,6 +14,7 @@ from care_analytics.charts import (
     write_sankey,
     write_sankey_png,
 )
+from care_analytics.demo_log import write_demo_log
 from care_analytics.journeys import build_journeys, directly_follows
 from care_analytics.kpis import compute_kpis
 from care_analytics.public_data import load_json
@@ -118,6 +119,7 @@ def write_outputs(root: Path, report: dict, events: pd.DataFrame, journeys: pd.D
     (root / "docs" / "recommendations.md").write_text(
         render_recommendations(report), encoding="utf-8"
     )
+    write_demo_log(root)
 
 
 def run(root: Path = ROOT) -> dict:

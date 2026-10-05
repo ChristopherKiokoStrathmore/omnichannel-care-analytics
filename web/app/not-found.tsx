@@ -4,14 +4,14 @@ export default function NotFound() {
   return (
     <div className="page narrow">
       <p className="kicker">Missing page</p>
-      <h1>This page is not part of the demo.</h1>
-      <p className="lede">The brief and the KPI dashboard are the two pages in this app.</p>
+      <h1>This page is not in the app.</h1>
+      <p className="lede">The article, the live demo, and the KPI report are the three pages.</p>
       <p className="actions">
-        <Link href="/" className="button button-primary">
-          Back to the brief
+        <Link href="/demo" className="button button-primary">
+          Open the live demo
         </Link>
-        <Link href="/dashboard" className="button button-secondary">
-          Open the dashboard
+        <Link href="/" className="button button-secondary">
+          Read the article
         </Link>
       </p>
     </div>

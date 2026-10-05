@@ -92,8 +92,10 @@ export function ResponseChart({
 
 export function OutcomeStack({
   rows,
+  caption = "Bar length follows the committed Sankey counts. Exact counts are in the table.",
 }: {
   rows: { channel: string; first: number; later: number; abandoned: number; journeys: number }[];
+  caption?: string;
 }) {
   return (
     <figure className="stacks">
@@ -125,7 +127,7 @@ export function OutcomeStack({
           </div>
         ))}
       </div>
-      <figcaption>Bar length follows the committed Sankey counts. Exact counts are in the table.</figcaption>
+      <figcaption>{caption}</figcaption>
     </figure>
   );
 }

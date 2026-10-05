@@ -92,6 +92,7 @@ def test_committed_outputs_do_not_contain_raw_utterances():
         ROOT / "reports",
         ROOT / "docs",
         ROOT / "README.md",
+        ROOT / "web" / "data",
     ]
     for root in roots:
         paths = [root] if root.is_file() else [path for path in root.rglob("*") if path.is_file()]

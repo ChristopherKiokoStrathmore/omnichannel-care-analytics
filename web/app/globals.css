@@ -653,6 +653,326 @@ td.peak {
   color: var(--muted);
 }
 
+.demo-presets,
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.demo-presets {
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+}
+
+.chip,
+.text-button,
+.view-tabs button,
+.intent-card h4 button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.chip {
+  border: 1px solid var(--ink);
+  background: transparent;
+  font-weight: 700;
+  padding: 0.32rem 0.55rem;
+}
+
+.chip-on {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.chip:hover,
+.view-tabs button:hover,
+.text-button:hover,
+.intent-card h4 button:hover {
+  color: var(--signal);
+}
+
+.chip:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--cream);
+}
+
+.slice-line {
+  margin-top: 0.85rem;
+  font-weight: 700;
+  max-width: 46rem;
+}
+
+.demo-layout {
+  display: grid;
+  grid-template-columns: 17.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  margin-top: 1.3rem;
+}
+
+.demo-filters {
+  position: sticky;
+  top: 9.4rem;
+  display: grid;
+  gap: 0.95rem;
+  max-height: calc(100vh - 10.2rem);
+  overflow: auto;
+  padding-bottom: 0.4rem;
+}
+
+.demo-filters h2 {
+  font-size: 1.45rem;
+}
+
+.demo-filters fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.demo-filters legend,
+.field span {
+  font-weight: 700;
+}
+
+.demo-filters legend {
+  padding: 0;
+}
+
+.filter-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.demo-filters select,
+.demo-main input[type="search"] {
+  width: 100%;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1px solid var(--ink);
+  padding: 0.45rem 0.55rem;
+}
+
+.demo-filters .button {
+  justify-content: center;
+}
+
+.button:disabled,
+.button:disabled:hover {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem 1.1rem;
+}
+
+.kpi {
+  border-top: 3px solid var(--signal);
+  padding-top: 0.65rem;
+}
+
+.kpi p {
+  font-weight: 700;
+}
+
+.kpi strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-display), Fraunces, Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.kpi span {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.view-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-top: 1.6rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.view-tabs button {
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  font-weight: 700;
+  padding: 0.55rem 0.75rem;
+}
+
+.view-tabs button[aria-selected="true"] {
+  border-bottom-color: var(--signal);
+}
+
+.sort-row {
+  margin-top: 0.9rem;
+}
+
+.text-button,
+.intent-card h4 button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-weight: 700;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: var(--signal);
+  text-underline-offset: 0.15em;
+}
+
+.intent-table td:nth-child(2),
+.intent-table th:nth-child(2) {
+  text-align: left;
+}
+
+.row-on {
+  background: color-mix(in srgb, var(--signal) 12%, var(--cream));
+}
+
+.taxonomy-block h3 {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 1.7rem;
+  font-size: 1.45rem;
+}
+
+.taxonomy-block h3 span {
+  font-family: var(--font-sans), "Source Sans 3", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+
+.intent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.intent-card,
+.journey-card {
+  border: 1px solid var(--line);
+  padding: 0.9rem 1rem;
+}
+
+.intent-card-on {
+  border-color: var(--ink);
+  box-shadow: inset 3px 0 0 var(--signal);
+}
+
+.intent-card h4 {
+  margin: 0;
+  font-family: var(--font-display), Fraunces, Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+}
+
+.intent-card p,
+.journey-card > p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.journey-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.journey-card header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  align-items: baseline;
+}
+
+.journey-card header strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.end-pill {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--ink);
+}
+
+.end-pill-stop {
+  border-bottom-color: var(--signal);
+}
+
+.path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+}
+
+.path li {
+  border: 1px solid var(--ink);
+  padding: 0.12rem 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.path li + li::before {
+  content: "→ ";
+  font-weight: 500;
+}
+
+.path-end {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.path-stop {
+  background: var(--signal);
+  color: var(--cream);
+}
+
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
 @media (max-width: 860px) {
   .headline-pair,
   .index,
@@ -660,8 +980,15 @@ td.peak {
   .group-grid,
   .note-grid,
   .minutes-label,
-  .stack-row {
+  .stack-row,
+  .demo-layout,
+  .kpi-grid,
+  .intent-grid {
     grid-template-columns: 1fr;
+  }
+
+  .demo-filters {
+    position: static;
   }
 
   .stack-row {

@@ -10,7 +10,9 @@ SYNTHETIC data, seed 20260929. The hop, the pipeline, and the outcome: 32.0% of 
 
 ## Live demo
 
-Live demo: placeholder. Deploy the Next.js app in `web/` on Vercel with the project Root Directory set to `web`, then replace this line with the deployed URL.
+[Live demo](https://omnichannel-care-analytics.vercel.app/demo) filters the synthetic journeys by channel, intent group, and outcome, and recomputes the care KPIs on that slice. The article stays at [https://omnichannel-care-analytics.vercel.app/](https://omnichannel-care-analytics.vercel.app/).
+
+Deploy the Next.js app in `web/` on Vercel with the project Root Directory set to `web`.
 
 Customers bounce between USSD, app, web, social and the call centre before an issue is fixed. How fast is first response, how often do customers retry, and which intents resolve on which channel?
 
@@ -125,7 +127,7 @@ npm install
 npm run build
 ```
 
-The pages repeat figures already written in this README and in `reports/`. Seed 20260929. No synthetic rate in the demo is a real-world measurement.
+The article (`/`) and the KPI report (`/dashboard`) repeat figures already written in this README and in `reports/`. The live demo (`/demo`) recomputes those definitions from `web/data/demo-log.json`, a compact copy of the committed synthetic journeys plus the public Bitext taxonomy tables. `scripts/build_demo_log.py` writes that file, and `make run` writes it again with the other outputs. Seed 20260929. No synthetic rate in the demo is a real-world measurement.
 
 ## Quickstart
 

@@ -23,7 +23,7 @@ import {
 import { REPO_HEATMAP_HTML, REPO_RECOMMENDATIONS, REPO_SANKEY_HTML } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Dashboard",
+  title: "KPI report",
   description:
     "SYNTHETIC KPI dashboard, seed 20260929. Resolution rate 81.4% (3256/4000). Digital-first journeys that later reach a call: 32.0% (971/3035).",
 };
