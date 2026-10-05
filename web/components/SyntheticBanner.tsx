@@ -7,8 +7,8 @@ export function SyntheticBanner() {
         <strong>SYNTHETIC</strong> data, seed {seed}. Not a real-world measurement.
       </p>
       <p>
-        Journey resolution {resolution.text}. Digital-first journeys that later reach a call:{" "}
-        {digitalFirstLaterCall.text}.
+        Full log: journey resolution {resolution.text}. Digital-first journeys that later reach a
+        call: {digitalFirstLaterCall.text}.
       </p>
     </div>
   );

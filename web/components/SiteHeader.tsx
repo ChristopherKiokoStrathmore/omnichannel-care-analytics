@@ -5,8 +5,9 @@ import { usePathname } from "next/navigation";
 import { REPO_URL } from "@/lib/site";
 
 const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/dashboard", label: "Dashboard" },
+  { href: "/", label: "Article" },
+  { href: "/demo", label: "Live demo" },
+  { href: "/dashboard", label: "KPI report" },
 ] as const;
 
 export function SiteHeader() {

@@ -37,13 +37,17 @@ export default function HomePage() {
           per customer. Journey resolution is {resolution.text}.
         </p>
         <HeadlinePair />
+        <p className="lede">
+          Filter those journeys by channel and intent in the live demo. This page keeps the
+          committed totals.
+        </p>
         <p className="actions">
-          <Link href="/dashboard" className="button button-primary">
-            Open the dashboard
+          <Link href="/demo" className="button button-primary">
+            Explore the live demo
           </Link>
-          <a href={REPO_URL} className="button button-secondary" rel="noopener noreferrer">
-            Pipeline on GitHub
-          </a>
+          <Link href="/dashboard" className="button button-secondary">
+            Read the KPI report
+          </Link>
         </p>
       </section>
 

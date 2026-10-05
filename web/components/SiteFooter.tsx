@@ -5,7 +5,8 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <p>
-        Figures on these pages are the committed counts for synthetic seed {seed}. Source files:{" "}
+        Seed {seed}. The article and the KPI report show the committed totals. The live demo
+        recomputes those definitions on the journeys you select. Source files:{" "}
         <a href={REPO_HEADLINES} rel="noopener noreferrer">
           reports/headlines.md
         </a>{" "}
