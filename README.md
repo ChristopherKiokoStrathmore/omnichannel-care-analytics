@@ -1,5 +1,7 @@
 # Omnichannel care analytics
 
+**[Live demo](https://omnichannel-care-analytics.vercel.app/demo)**
+
 ![Customers hop across care channels, the pipeline scores the path, and on synthetic data 32.0% of digital-first journeys later reach a call](assets/hero.png)
 
 SYNTHETIC data, seed 20260929. The hop, the pipeline, and the outcome: 32.0% of digital-first journeys (971/3035) later reach a call.
