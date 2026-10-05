@@ -1,0 +1,1159 @@
+{
+  "public": {
+    "bitext": {
+      "source": "bitext/Bitext-telco-llm-chatbot-training-dataset",
+      "origin": "public",
+      "bitext_describes_dataset_as": "hybrid synthetic training set",
+      "n_examples": 26000,
+      "n_intents": 26,
+      "n_categories": 7,
+      "examples_per_intent_min": 1000,
+      "examples_per_intent_max": 1000,
+      "sha256": "0905820a880783d1a00f92d4f519488479f9eefe770cbfb5737f9462135d6c12",
+      "by_category": [
+        {
+          "category": "BILLING",
+          "n_examples": 2000,
+          "n_intents": 2
+        },
+        {
+          "category": "COMPLAINTS",
+          "n_examples": 3000,
+          "n_intents": 3
+        },
+        {
+          "category": "CONSUMPTION",
+          "n_examples": 3000,
+          "n_intents": 3
+        },
+        {
+          "category": "CONTACT",
+          "n_examples": 2000,
+          "n_intents": 2
+        },
+        {
+          "category": "PAYMENT",
+          "n_examples": 4000,
+          "n_intents": 4
+        },
+        {
+          "category": "SERVICES",
+          "n_examples": 7000,
+          "n_intents": 7
+        },
+        {
+          "category": "SUBSCRIPTION",
+          "n_examples": 5000,
+          "n_intents": 5
+        }
+      ],
+      "by_tag": [
+        {
+          "tag": "B",
+          "meaning": "basic syntactic structure",
+          "n_examples": 26000,
+          "share_of_examples": 1.0
+        },
+        {
+          "tag": "I",
+          "meaning": "interrogative structure",
+          "n_examples": 18899,
+          "share_of_examples": 0.7268846153846154
+        },
+        {
+          "tag": "C",
+          "meaning": "coordinated syntactic structure",
+          "n_examples": 20445,
+          "share_of_examples": 0.7863461538461538
+        },
+        {
+          "tag": "N",
+          "meaning": "negation",
+          "n_examples": 0,
+          "share_of_examples": 0.0
+        },
+        {
+          "tag": "P",
+          "meaning": "politeness",
+          "n_examples": 12310,
+          "share_of_examples": 0.4734615384615385
+        },
+        {
+          "tag": "Q",
+          "meaning": "colloquial",
+          "n_examples": 12862,
+          "share_of_examples": 0.4946923076923077
+        },
+        {
+          "tag": "W",
+          "meaning": "offensive language",
+          "n_examples": 9271,
+          "share_of_examples": 0.356576923076923
+        },
+        {
+          "tag": "K",
+          "meaning": "keyword mode",
+          "n_examples": 0,
+          "share_of_examples": 0.0
+        },
+        {
+          "tag": "E",
+          "meaning": "abbreviations",
+          "n_examples": 1228,
+          "share_of_examples": 0.0472307692307692
+        },
+        {
+          "tag": "Z",
+          "meaning": "errors and typos",
+          "n_examples": 12942,
+          "share_of_examples": 0.4977692307692307
+        },
+        {
+          "tag": "M",
+          "meaning": "morphological variation",
+          "n_examples": 1352,
+          "share_of_examples": 0.052
+        },
+        {
+          "tag": "L",
+          "meaning": "semantic variation",
+          "n_examples": 16402,
+          "share_of_examples": 0.6308461538461538
+        }
+      ],
+      "instruction_length": {
+        "shortest_intent": "pay",
+        "shortest_median_chars": 42.0,
+        "longest_intent": "check_excess_data_charges",
+        "longest_median_chars": 62.0
+      }
+    },
+    "twitter_sample": {
+      "source": "BERD record 4c9xb-k5q03 sample.csv__100lines.csv",
+      "upstream": "Kaggle thoughtvector/customer-support-on-twitter",
+      "origin": "public_preview",
+      "full_corpus_downloaded": false,
+      "full_corpus_reason": "Unauthenticated requests to the Kaggle dataset page and the Kaggle download API returned HTTP 404. No Kaggle credentials were used. This file is the publisher preview only.",
+      "sha256": "8167aa0372c1b7a3cdff2d0f2d2f7d8a605d0615d4887a54981bc82d8c30e0ac",
+      "physical_newlines": 100,
+      "n_rows": 93,
+      "n_inbound": 49,
+      "n_outbound": 44,
+      "n_unparsed_inbound_flag": 0,
+      "n_company_accounts": 13,
+      "company_account_counts": [
+        {
+          "author_id": "AppleSupport",
+          "tweets": 13
+        },
+        {
+          "author_id": "SpotifyCares",
+          "tweets": 8
+        },
+        {
+          "author_id": "Tesco",
+          "tweets": 8
+        },
+        {
+          "author_id": "VirginTrains",
+          "tweets": 4
+        },
+        {
+          "author_id": "British_Airways",
+          "tweets": 3
+        },
+        {
+          "author_id": "ChaseSupport",
+          "tweets": 1
+        },
+        {
+          "author_id": "O2",
+          "tweets": 1
+        },
+        {
+          "author_id": "comcastcares",
+          "tweets": 1
+        },
+        {
+          "author_id": "sprintcare",
+          "tweets": 1
+        },
+        {
+          "author_id": "SouthwestAir",
+          "tweets": 1
+        },
+        {
+          "author_id": "Ask_Spectrum",
+          "tweets": 1
+        },
+        {
+          "author_id": "HPSupport",
+          "tweets": 1
+        },
+        {
+          "author_id": "UPSHelp",
+          "tweets": 1
+        }
+      ],
+      "telecom_or_cable_accounts": [
+        {
+          "author_id": "Ask_Spectrum",
+          "kind": "cable_isp",
+          "tweets": 1
+        },
+        {
+          "author_id": "O2",
+          "kind": "mobile",
+          "tweets": 1
+        },
+        {
+          "author_id": "comcastcares",
+          "kind": "cable_isp",
+          "tweets": 1
+        },
+        {
+          "author_id": "sprintcare",
+          "kind": "mobile",
+          "tweets": 1
+        }
+      ],
+      "telecom_or_cable_tweets": 4,
+      "in_sample_reply_links": 66,
+      "inbound_to_company_reply_pairs": 42,
+      "negative_reply_delays": 0,
+      "reply_delay_minutes_median": 50.849999999999994,
+      "reply_delay_minutes_p90": 385.73999999999995,
+      "reply_delay_definition": "For each outbound tweet in this preview whose in_response_to_tweet_id points at an inbound tweet that is also inside this same file, delay is the response created_at minus the parent created_at, in minutes. Pairs outside the preview are not counted. This is not a population time-to-first-response."
+    }
+  },
+  "synthetic": {
+    "label": "SYNTHETIC",
+    "not_a_real_world_measurement": true,
+    "seed": 20260929,
+    "definitions": {
+      "time_to_first_response": "Time-to-first-response is the delay, in minutes, between a journey's first inbound timestamp and the response timestamp on that same first contact. Median and the 90th percentile use DuckDB quantile_cont (linear). The synthetic generator draws each delay from the channel lognormal in config/synthetic.yaml and then clips it. Every synthetic contact has a response, so there are no censored non-responses.",
+      "repeat_contact": "Repeat-contact rate is the share of synthetic journeys with two or more contacts. A repeat contact is a later contact in the same journey after an unresolved contact. The synthetic log has one journey per customer, so this is not a later, separate issue from the same person.",
+      "channel_switch": "Channel-switch rate is the share of synthetic journeys whose contacts use more than one distinct channel. A second contact on the same channel is a repeat contact and is not a channel switch.",
+      "digital_to_call": "A synthetic digital-to-call journey starts on a digital channel (ussd, app, web, or social) and has a later contact on the call channel. That is the operational definition of a failed digital attempt that ends in a call. The rate is reported for all journeys and again among digital-first journeys only.",
+      "resolution_rate": "On the synthetic log, contact resolution rate for a channel, or for an intent group on a channel, is resolved contacts divided by contacts on that slice. A journey has at most one resolved contact, the one that closes it. Journey resolution rate is journeys whose end reason is resolved, divided by journeys. Realised rates are outputs. They are not the base probabilities in the config: each contact multiplies that base by attempt decay and, when the response is slower than the configured threshold, by the slow-response factor."
+    },
+    "assumptions": {
+      "attempt_decay": 0.85,
+      "slow_response_minutes": 30.0,
+      "slow_response_factor": 0.75,
+      "resolution_probability_cap": 0.98,
+      "resolution_probability": {
+        "self_service_candidate": {
+          "ussd": 0.82,
+          "app": 0.86,
+          "web": 0.74,
+          "social": 0.3,
+          "call": 0.9
+        },
+        "assisted": {
+          "ussd": 0.38,
+          "app": 0.52,
+          "web": 0.45,
+          "social": 0.2,
+          "call": 0.78
+        },
+        "complaint": {
+          "ussd": 0.12,
+          "app": 0.22,
+          "web": 0.18,
+          "social": 0.15,
+          "call": 0.6
+        }
+      },
+      "first_channel_weights": {
+        "ussd": 0.32,
+        "app": 0.22,
+        "web": 0.14,
+        "social": 0.08,
+        "call": 0.24
+      },
+      "digital_channels": [
+        "ussd",
+        "app",
+        "web",
+        "social"
+      ],
+      "assisted_channel": "call"
+    },
+    "funnel": {
+      "journeys": 4000,
+      "events": 6376,
+      "customers": 4000,
+      "resolved_on_first_contact": 2223,
+      "repeat_contact": 1462,
+      "channel_switch": 1235,
+      "digital_first": 3035,
+      "digital_to_call": 971,
+      "resolved": 3256,
+      "abandoned": 744,
+      "end_chose_abandon": 542,
+      "end_max_contacts": 202,
+      "end_resolved": 3256
+    },
+    "ttfr_by_first_channel": [
+      {
+        "channel": "app",
+        "journeys": 873,
+        "median_minutes": 2.016536,
+        "p90_minutes": 4.0497474
+      },
+      {
+        "channel": "call",
+        "journeys": 965,
+        "median_minutes": 5.934931,
+        "p90_minutes": 11.2047268
+      },
+      {
+        "channel": "social",
+        "journeys": 325,
+        "median_minutes": 29.992861,
+        "p90_minutes": 69.8548928
+      },
+      {
+        "channel": "ussd",
+        "journeys": 1289,
+        "median_minutes": 0.982419,
+        "p90_minutes": 1.6874576000000001
+      },
+      {
+        "channel": "web",
+        "journeys": 548,
+        "median_minutes": 4.8112525,
+        "p90_minutes": 10.4509953
+      }
+    ],
+    "resolution_by_channel": [
+      {
+        "channel": "app",
+        "contacts": 1145,
+        "resolved_contacts": 582
+      },
+      {
+        "channel": "call",
+        "contacts": 2372,
+        "resolved_contacts": 1556
+      },
+      {
+        "channel": "social",
+        "contacts": 526,
+        "resolved_contacts": 102
+      },
+      {
+        "channel": "ussd",
+        "contacts": 1611,
+        "resolved_contacts": 699
+      },
+      {
+        "channel": "web",
+        "contacts": 722,
+        "resolved_contacts": 317
+      }
+    ],
+    "resolution_by_group_channel": [
+      {
+        "intent_group": "assisted",
+        "channel": "app",
+        "contacts": 464,
+        "resolved_contacts": 227
+      },
+      {
+        "intent_group": "assisted",
+        "channel": "call",
+        "contacts": 959,
+        "resolved_contacts": 661
+      },
+      {
+        "intent_group": "assisted",
+        "channel": "social",
+        "contacts": 203,
+        "resolved_contacts": 34
+      },
+      {
+        "intent_group": "assisted",
+        "channel": "ussd",
+        "contacts": 607,
+        "resolved_contacts": 226
+      },
+      {
+        "intent_group": "assisted",
+        "channel": "web",
+        "contacts": 291,
+        "resolved_contacts": 128
+      },
+      {
+        "intent_group": "complaint",
+        "channel": "app",
+        "contacts": 330,
+        "resolved_contacts": 55
+      },
+      {
+        "intent_group": "complaint",
+        "channel": "call",
+        "contacts": 859,
+        "resolved_contacts": 422
+      },
+      {
+        "intent_group": "complaint",
+        "channel": "social",
+        "contacts": 184,
+        "resolved_contacts": 20
+      },
+      {
+        "intent_group": "complaint",
+        "channel": "ussd",
+        "contacts": 464,
+        "resolved_contacts": 53
+      },
+      {
+        "intent_group": "complaint",
+        "channel": "web",
+        "contacts": 219,
+        "resolved_contacts": 29
+      },
+      {
+        "intent_group": "self_service_candidate",
+        "channel": "app",
+        "contacts": 351,
+        "resolved_contacts": 300
+      },
+      {
+        "intent_group": "self_service_candidate",
+        "channel": "call",
+        "contacts": 554,
+        "resolved_contacts": 473
+      },
+      {
+        "intent_group": "self_service_candidate",
+        "channel": "social",
+        "contacts": 139,
+        "resolved_contacts": 48
+      },
+      {
+        "intent_group": "self_service_candidate",
+        "channel": "ussd",
+        "contacts": 540,
+        "resolved_contacts": 420
+      },
+      {
+        "intent_group": "self_service_candidate",
+        "channel": "web",
+        "contacts": 212,
+        "resolved_contacts": 160
+      }
+    ],
+    "resolution_by_intent": [
+      {
+        "category": "BILLING",
+        "intent": "dispute_invoice",
+        "intent_group": "complaint",
+        "journeys": 212,
+        "resolved_journeys": 125,
+        "digital_first": 158,
+        "digital_to_call": 78
+      },
+      {
+        "category": "BILLING",
+        "intent": "invoices",
+        "intent_group": "self_service_candidate",
+        "journeys": 317,
+        "resolved_journeys": 294,
+        "digital_first": 230,
+        "digital_to_call": 31
+      },
+      {
+        "category": "COMPLAINTS",
+        "intent": "get_compensation",
+        "intent_group": "complaint",
+        "journeys": 119,
+        "resolved_journeys": 64,
+        "digital_first": 88,
+        "digital_to_call": 41
+      },
+      {
+        "category": "COMPLAINTS",
+        "intent": "report_poor_signal_coverage",
+        "intent_group": "complaint",
+        "journeys": 220,
+        "resolved_journeys": 134,
+        "digital_first": 163,
+        "digital_to_call": 89
+      },
+      {
+        "category": "COMPLAINTS",
+        "intent": "report_problem",
+        "intent_group": "complaint",
+        "journeys": 289,
+        "resolved_journeys": 173,
+        "digital_first": 218,
+        "digital_to_call": 115
+      },
+      {
+        "category": "CONSUMPTION",
+        "intent": "check_excess_data_charges",
+        "intent_group": "self_service_candidate",
+        "journeys": 186,
+        "resolved_journeys": 179,
+        "digital_first": 142,
+        "digital_to_call": 24
+      },
+      {
+        "category": "CONSUMPTION",
+        "intent": "check_usage",
+        "intent_group": "self_service_candidate",
+        "journeys": 467,
+        "resolved_journeys": 448,
+        "digital_first": 347,
+        "digital_to_call": 42
+      },
+      {
+        "category": "CONSUMPTION",
+        "intent": "set_usage_limits",
+        "intent_group": "assisted",
+        "journeys": 111,
+        "resolved_journeys": 95,
+        "digital_first": 90,
+        "digital_to_call": 38
+      },
+      {
+        "category": "CONTACT",
+        "intent": "customer_service",
+        "intent_group": "assisted",
+        "journeys": 150,
+        "resolved_journeys": 117,
+        "digital_first": 115,
+        "digital_to_call": 36
+      },
+      {
+        "category": "CONTACT",
+        "intent": "human_agent",
+        "intent_group": "complaint",
+        "journeys": 142,
+        "resolved_journeys": 83,
+        "digital_first": 111,
+        "digital_to_call": 70
+      },
+      {
+        "category": "PAYMENT",
+        "intent": "check_mobile_payments",
+        "intent_group": "self_service_candidate",
+        "journeys": 209,
+        "resolved_journeys": 194,
+        "digital_first": 167,
+        "digital_to_call": 19
+      },
+      {
+        "category": "PAYMENT",
+        "intent": "pay",
+        "intent_group": "assisted",
+        "journeys": 217,
+        "resolved_journeys": 185,
+        "digital_first": 166,
+        "digital_to_call": 63
+      },
+      {
+        "category": "PAYMENT",
+        "intent": "payment_methods",
+        "intent_group": "self_service_candidate",
+        "journeys": 91,
+        "resolved_journeys": 87,
+        "digital_first": 68,
+        "digital_to_call": 8
+      },
+      {
+        "category": "PAYMENT",
+        "intent": "schedule_payments",
+        "intent_group": "assisted",
+        "journeys": 131,
+        "resolved_journeys": 109,
+        "digital_first": 108,
+        "digital_to_call": 42
+      },
+      {
+        "category": "SERVICES",
+        "intent": "activate_call_management_services",
+        "intent_group": "assisted",
+        "journeys": 84,
+        "resolved_journeys": 72,
+        "digital_first": 65,
+        "digital_to_call": 22
+      },
+      {
+        "category": "SERVICES",
+        "intent": "activate_phone",
+        "intent_group": "assisted",
+        "journeys": 115,
+        "resolved_journeys": 90,
+        "digital_first": 91,
+        "digital_to_call": 37
+      },
+      {
+        "category": "SERVICES",
+        "intent": "activate_roaming",
+        "intent_group": "assisted",
+        "journeys": 123,
+        "resolved_journeys": 101,
+        "digital_first": 86,
+        "digital_to_call": 37
+      },
+      {
+        "category": "SERVICES",
+        "intent": "check_signal_coverage",
+        "intent_group": "self_service_candidate",
+        "journeys": 141,
+        "resolved_journeys": 132,
+        "digital_first": 106,
+        "digital_to_call": 17
+      },
+      {
+        "category": "SERVICES",
+        "intent": "deactivate_call_management_services",
+        "intent_group": "assisted",
+        "journeys": 39,
+        "resolved_journeys": 34,
+        "digital_first": 31,
+        "digital_to_call": 13
+      },
+      {
+        "category": "SERVICES",
+        "intent": "deactivate_phone",
+        "intent_group": "assisted",
+        "journeys": 74,
+        "resolved_journeys": 63,
+        "digital_first": 60,
+        "digital_to_call": 17
+      },
+      {
+        "category": "SERVICES",
+        "intent": "install_internet",
+        "intent_group": "assisted",
+        "journeys": 82,
+        "resolved_journeys": 57,
+        "digital_first": 60,
+        "digital_to_call": 21
+      },
+      {
+        "category": "SUBSCRIPTION",
+        "intent": "cancel_plan",
+        "intent_group": "assisted",
+        "journeys": 123,
+        "resolved_journeys": 113,
+        "digital_first": 93,
+        "digital_to_call": 30
+      },
+      {
+        "category": "SUBSCRIPTION",
+        "intent": "change_plan",
+        "intent_group": "assisted",
+        "journeys": 164,
+        "resolved_journeys": 130,
+        "digital_first": 127,
+        "digital_to_call": 44
+      },
+      {
+        "category": "SUBSCRIPTION",
+        "intent": "change_provider",
+        "intent_group": "assisted",
+        "journeys": 40,
+        "resolved_journeys": 34,
+        "digital_first": 32,
+        "digital_to_call": 8
+      },
+      {
+        "category": "SUBSCRIPTION",
+        "intent": "check_cancellation_fee",
+        "intent_group": "self_service_candidate",
+        "journeys": 69,
+        "resolved_journeys": 67,
+        "digital_first": 52,
+        "digital_to_call": 3
+      },
+      {
+        "category": "SUBSCRIPTION",
+        "intent": "sign_up_for_plan",
+        "intent_group": "assisted",
+        "journeys": 85,
+        "resolved_journeys": 76,
+        "digital_first": 61,
+        "digital_to_call": 26
+      }
+    ],
+    "by_intent_group": [
+      {
+        "intent_group": "assisted",
+        "journeys": 1538,
+        "resolved_journeys": 1276,
+        "digital_first": 1185,
+        "digital_to_call": 434,
+        "resolved_on_first_contact": 778
+      },
+      {
+        "intent_group": "complaint",
+        "journeys": 982,
+        "resolved_journeys": 579,
+        "digital_first": 738,
+        "digital_to_call": 393,
+        "resolved_on_first_contact": 262
+      },
+      {
+        "intent_group": "self_service_candidate",
+        "journeys": 1480,
+        "resolved_journeys": 1401,
+        "digital_first": 1112,
+        "digital_to_call": 144,
+        "resolved_on_first_contact": 1183
+      }
+    ],
+    "directly_follows": [
+      {
+        "from_activity": "app",
+        "to_activity": "abandoned",
+        "n": 99
+      },
+      {
+        "from_activity": "app",
+        "to_activity": "app",
+        "n": 72
+      },
+      {
+        "from_activity": "app",
+        "to_activity": "call",
+        "n": 257
+      },
+      {
+        "from_activity": "app",
+        "to_activity": "resolved",
+        "n": 582
+      },
+      {
+        "from_activity": "app",
+        "to_activity": "social",
+        "n": 62
+      },
+      {
+        "from_activity": "app",
+        "to_activity": "ussd",
+        "n": 42
+      },
+      {
+        "from_activity": "app",
+        "to_activity": "web",
+        "n": 31
+      },
+      {
+        "from_activity": "call",
+        "to_activity": "abandoned",
+        "n": 274
+      },
+      {
+        "from_activity": "call",
+        "to_activity": "app",
+        "n": 39
+      },
+      {
+        "from_activity": "call",
+        "to_activity": "call",
+        "n": 382
+      },
+      {
+        "from_activity": "call",
+        "to_activity": "resolved",
+        "n": 1556
+      },
+      {
+        "from_activity": "call",
+        "to_activity": "social",
+        "n": 37
+      },
+      {
+        "from_activity": "call",
+        "to_activity": "ussd",
+        "n": 43
+      },
+      {
+        "from_activity": "call",
+        "to_activity": "web",
+        "n": 41
+      },
+      {
+        "from_activity": "social",
+        "to_activity": "abandoned",
+        "n": 92
+      },
+      {
+        "from_activity": "social",
+        "to_activity": "app",
+        "n": 28
+      },
+      {
+        "from_activity": "social",
+        "to_activity": "call",
+        "n": 223
+      },
+      {
+        "from_activity": "social",
+        "to_activity": "resolved",
+        "n": 102
+      },
+      {
+        "from_activity": "social",
+        "to_activity": "social",
+        "n": 43
+      },
+      {
+        "from_activity": "social",
+        "to_activity": "ussd",
+        "n": 18
+      },
+      {
+        "from_activity": "social",
+        "to_activity": "web",
+        "n": 20
+      },
+      {
+        "from_activity": "ussd",
+        "to_activity": "abandoned",
+        "n": 185
+      },
+      {
+        "from_activity": "ussd",
+        "to_activity": "app",
+        "n": 78
+      },
+      {
+        "from_activity": "ussd",
+        "to_activity": "call",
+        "n": 385
+      },
+      {
+        "from_activity": "ussd",
+        "to_activity": "resolved",
+        "n": 699
+      },
+      {
+        "from_activity": "ussd",
+        "to_activity": "social",
+        "n": 44
+      },
+      {
+        "from_activity": "ussd",
+        "to_activity": "ussd",
+        "n": 180
+      },
+      {
+        "from_activity": "ussd",
+        "to_activity": "web",
+        "n": 40
+      },
+      {
+        "from_activity": "web",
+        "to_activity": "abandoned",
+        "n": 94
+      },
+      {
+        "from_activity": "web",
+        "to_activity": "app",
+        "n": 55
+      },
+      {
+        "from_activity": "web",
+        "to_activity": "call",
+        "n": 160
+      },
+      {
+        "from_activity": "web",
+        "to_activity": "resolved",
+        "n": 317
+      },
+      {
+        "from_activity": "web",
+        "to_activity": "social",
+        "n": 15
+      },
+      {
+        "from_activity": "web",
+        "to_activity": "ussd",
+        "n": 39
+      },
+      {
+        "from_activity": "web",
+        "to_activity": "web",
+        "n": 42
+      }
+    ],
+    "sankey": [
+      {
+        "first_channel": "app",
+        "outcome": "Abandoned",
+        "n": 146
+      },
+      {
+        "first_channel": "app",
+        "outcome": "Resolved after another contact",
+        "n": 225
+      },
+      {
+        "first_channel": "app",
+        "outcome": "Resolved on first contact",
+        "n": 502
+      },
+      {
+        "first_channel": "call",
+        "outcome": "Abandoned",
+        "n": 94
+      },
+      {
+        "first_channel": "call",
+        "outcome": "Resolved after another contact",
+        "n": 117
+      },
+      {
+        "first_channel": "call",
+        "outcome": "Resolved on first contact",
+        "n": 754
+      },
+      {
+        "first_channel": "social",
+        "outcome": "Abandoned",
+        "n": 98
+      },
+      {
+        "first_channel": "social",
+        "outcome": "Resolved after another contact",
+        "n": 152
+      },
+      {
+        "first_channel": "social",
+        "outcome": "Resolved on first contact",
+        "n": 75
+      },
+      {
+        "first_channel": "ussd",
+        "outcome": "Abandoned",
+        "n": 285
+      },
+      {
+        "first_channel": "ussd",
+        "outcome": "Resolved after another contact",
+        "n": 388
+      },
+      {
+        "first_channel": "ussd",
+        "outcome": "Resolved on first contact",
+        "n": 616
+      },
+      {
+        "first_channel": "web",
+        "outcome": "Abandoned",
+        "n": 121
+      },
+      {
+        "first_channel": "web",
+        "outcome": "Resolved after another contact",
+        "n": 151
+      },
+      {
+        "first_channel": "web",
+        "outcome": "Resolved on first contact",
+        "n": 276
+      }
+    ],
+    "config": {
+      "seed": 20260929,
+      "n_journeys": 4000,
+      "start": "2024-06-03T06:00:00+00:00",
+      "horizon_days": 90,
+      "max_contacts": 4,
+      "channels": [
+        "ussd",
+        "app",
+        "web",
+        "social",
+        "call"
+      ],
+      "digital_channels": [
+        "ussd",
+        "app",
+        "web",
+        "social"
+      ],
+      "assisted_channel": "call",
+      "intent_weights": {
+        "check_usage": 12,
+        "invoices": 8,
+        "dispute_invoice": 6,
+        "pay": 6,
+        "check_mobile_payments": 5,
+        "payment_methods": 3,
+        "schedule_payments": 3,
+        "check_excess_data_charges": 5,
+        "set_usage_limits": 3,
+        "report_problem": 7,
+        "report_poor_signal_coverage": 6,
+        "get_compensation": 3,
+        "customer_service": 4,
+        "human_agent": 3,
+        "activate_phone": 3,
+        "deactivate_phone": 2,
+        "activate_roaming": 3,
+        "check_signal_coverage": 4,
+        "activate_call_management_services": 2,
+        "deactivate_call_management_services": 1,
+        "install_internet": 2,
+        "change_plan": 4,
+        "cancel_plan": 3,
+        "check_cancellation_fee": 2,
+        "sign_up_for_plan": 2,
+        "change_provider": 1
+      },
+      "intent_groups": {
+        "self_service_candidate": [
+          "check_usage",
+          "check_excess_data_charges",
+          "check_signal_coverage",
+          "check_mobile_payments",
+          "check_cancellation_fee",
+          "invoices",
+          "payment_methods"
+        ],
+        "complaint": [
+          "dispute_invoice",
+          "get_compensation",
+          "report_poor_signal_coverage",
+          "report_problem",
+          "human_agent"
+        ],
+        "assisted": [
+          "set_usage_limits",
+          "customer_service",
+          "pay",
+          "schedule_payments",
+          "activate_call_management_services",
+          "activate_phone",
+          "activate_roaming",
+          "deactivate_call_management_services",
+          "deactivate_phone",
+          "install_internet",
+          "cancel_plan",
+          "change_plan",
+          "change_provider",
+          "sign_up_for_plan"
+        ]
+      },
+      "first_channel_weights": {
+        "ussd": 0.32,
+        "app": 0.22,
+        "web": 0.14,
+        "social": 0.08,
+        "call": 0.24
+      },
+      "resolution_probability": {
+        "self_service_candidate": {
+          "ussd": 0.82,
+          "app": 0.86,
+          "web": 0.74,
+          "social": 0.3,
+          "call": 0.9
+        },
+        "assisted": {
+          "ussd": 0.38,
+          "app": 0.52,
+          "web": 0.45,
+          "social": 0.2,
+          "call": 0.78
+        },
+        "complaint": {
+          "ussd": 0.12,
+          "app": 0.22,
+          "web": 0.18,
+          "social": 0.15,
+          "call": 0.6
+        }
+      },
+      "attempt_decay": 0.85,
+      "slow_response_minutes": 30,
+      "slow_response_factor": 0.75,
+      "resolution_probability_cap": 0.98,
+      "next_channel_if_unresolved": {
+        "ussd": {
+          "ussd": 0.2,
+          "app": 0.1,
+          "web": 0.05,
+          "social": 0.05,
+          "call": 0.45,
+          "abandon": 0.15
+        },
+        "app": {
+          "ussd": 0.1,
+          "app": 0.15,
+          "web": 0.05,
+          "social": 0.1,
+          "call": 0.45,
+          "abandon": 0.15
+        },
+        "web": {
+          "ussd": 0.1,
+          "app": 0.15,
+          "web": 0.1,
+          "social": 0.05,
+          "call": 0.4,
+          "abandon": 0.2
+        },
+        "social": {
+          "ussd": 0.05,
+          "app": 0.1,
+          "web": 0.05,
+          "social": 0.1,
+          "call": 0.5,
+          "abandon": 0.2
+        },
+        "call": {
+          "ussd": 0.05,
+          "app": 0.05,
+          "web": 0.05,
+          "social": 0.05,
+          "call": 0.55,
+          "abandon": 0.25
+        }
+      },
+      "ttfr_lognormal_minutes": {
+        "ussd": {
+          "mu": 0.0,
+          "sigma": 0.4
+        },
+        "app": {
+          "mu": 0.69,
+          "sigma": 0.5
+        },
+        "web": {
+          "mu": 1.61,
+          "sigma": 0.55
+        },
+        "social": {
+          "mu": 3.4,
+          "sigma": 0.65
+        },
+        "call": {
+          "mu": 1.79,
+          "sigma": 0.5
+        }
+      },
+      "ttfr_clip_minutes": [
+        0.05,
+        1440
+      ],
+      "retry_gap_lognormal_hours": {
+        "mu": 1.1,
+        "sigma": 0.7
+      },
+      "retry_gap_clip_hours": [
+        0.1,
+        168
+      ]
+    }
+  }
+}

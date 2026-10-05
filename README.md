@@ -8,6 +8,10 @@ SYNTHETIC data, seed 20260929. The hop, the pipeline, and the outcome: 32.0% of 
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+## Live demo
+
+Live demo: placeholder. Deploy the Next.js app in `web/` on Vercel with the project Root Directory set to `web`, then replace this line with the deployed URL.
+
 Customers bounce between USSD, app, web, social and the call centre before an issue is fixed. How fast is first response, how often do customers retry, and which intents resolve on which channel?
 
 This repo builds a journey KPI pipeline (funnel, time to first response, resolution by channel and intent, directly-follows graph, Sankey and friction heatmap) and profiles the public Bitext telco intent taxonomy. Part of an independent portfolio series on telecom customer analytics, built alongside an MSc in Data Science. Structured using CRISP-DM.
@@ -113,7 +117,15 @@ Treat the note as a decision about a real operation only after the weights, cloc
 
 ## Deployment
 
-Not in scope. This repo does not deploy a service. It ships a reproducible pipeline and the recommendations note.
+The KPI pipeline stays a local script (`make run`). It does not run as a hosted service. The demo frontend in `web/` is a Next.js App Router app for Vercel. Set the project Root Directory to `web`, then install and build from that directory:
+
+```bash
+cd web
+npm install
+npm run build
+```
+
+The pages repeat figures already written in this README and in `reports/`. Seed 20260929. No synthetic rate in the demo is a real-world measurement.
 
 ## Quickstart
 
